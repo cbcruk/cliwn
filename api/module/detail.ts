@@ -1,15 +1,23 @@
 import { getHtml } from '../lib/cheerio'
 import getNickname from './nickname'
 
+const NICKNAME_SELECTOR = '.nickname > span'
+const SUBJECT_SELECTOR = '.post_subject > span:last-child'
+const VIEW_COUNT_SELECTOR = '.view_count'
+const TIMESTAMP_SELECTOR = '.post_author > span:first-child'
+const IP_SELECTOR = '.post_author > span:last-child'
+const ARTICLE_SELECTOR = '.post_article'
+const WRITER_SELECTOR = '#writer'
+
 async function getDetail(endpoint: string) {
   const $ = await getHtml(endpoint)
 
   const [$nickname, ...rest] = [
-    '.nickname > span',
-    '.post_subject > span:last-child',
-    '.view_count',
-    '.post_author > span:first-child',
-    '.post_author > span:last-child'
+    NICKNAME_SELECTOR,
+    SUBJECT_SELECTOR,
+    VIEW_COUNT_SELECTOR,
+    TIMESTAMP_SELECTOR,
+    IP_SELECTOR,
   ].map(selector => $(selector))
   const [subject, view_count, timestamp, ip] = rest.map($element =>
     $element.textWithTrim()
@@ -18,7 +26,7 @@ async function getDetail(endpoint: string) {
     .split('수정일 : ')
     .map(text => text.trim())
   const nickname = getNickname($nickname)
-  const $article = $('.post_article')
+  const $article = $(ARTICLE_SELECTOR)
   const content = $article
     .text()
     .trim()
@@ -30,7 +38,7 @@ async function getDetail(endpoint: string) {
       const src = $(element).attr('src')
       return src.slice(0, src.lastIndexOf('?'))
     })
-  const writer = $('#writer').val()
+  const writer = $(WRITER_SELECTOR).val()
 
   const detail = {
     nickname,
