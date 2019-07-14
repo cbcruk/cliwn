@@ -1,7 +1,7 @@
 import { getHtml } from '../lib/cheerio'
 import getNickname from './nickname'
 
-const NICKNAME_SELECTOR = '.nickname > span'
+const NICKNAME_SELECTOR = '.nickname'
 const SUBJECT_SELECTOR = '.post_subject > span:last-child'
 const VIEW_COUNT_SELECTOR = '.view_count'
 const TIMESTAMP_SELECTOR = '.post_author > span:first-child'
@@ -11,7 +11,6 @@ const WRITER_SELECTOR = '#writer'
 
 async function getDetail(endpoint: string) {
   const $ = await getHtml(endpoint)
-
   const [$nickname, ...rest] = [
     NICKNAME_SELECTOR,
     SUBJECT_SELECTOR,
