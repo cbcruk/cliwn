@@ -5,11 +5,11 @@ import getDetail from '../module/detail'
 const CATEGORY_SELECTOR = '.post_category'
 const PRODUCT_INFO_SELECTOR = '.product_info'
 
-export default async function(req: NowRequest, res: NowResponse) {
+export default async function (req: NowRequest, res: NowResponse) {
   const { $, detail } = await getDetail(`sold/${req.query.id}`)
 
   const category = $(CATEGORY_SELECTOR).textWithTrim()
-  const [how, status, price, when, area] = $(PRODUCT_INFO_SELECTOR)
+  const [how, status, price, bought_date, area] = $(PRODUCT_INFO_SELECTOR)
     .toArray()
     .map(element => $(element).textWithTrim())
 
@@ -19,7 +19,7 @@ export default async function(req: NowRequest, res: NowResponse) {
     how,
     status,
     price,
-    when,
+    bought_date,
     area
   }
 
