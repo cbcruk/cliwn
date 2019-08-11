@@ -11,11 +11,5 @@ export async function getHtml(
   )
   const $ = cheerio.load(response.data)
 
-  $.prototype.textWithTrim = function() {
-    return this.text()
-      .trim()
-      .replace(/\t|\n/g, '')
-  }
-
   return $
 }

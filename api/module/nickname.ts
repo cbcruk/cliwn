@@ -1,5 +1,5 @@
 function getNickname($element: Cheerio) {
-  const text = $element.textWithTrim()
+  const text = $element.text().trim()
   const alt = $element.find('img').attr('alt')
 
   return text || alt

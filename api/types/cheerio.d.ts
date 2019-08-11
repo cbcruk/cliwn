@@ -1,3 +1,0 @@
-interface Cheerio {
-  textWithTrim(): string
-}

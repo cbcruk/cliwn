@@ -30,11 +30,9 @@ async function getList(path: string, query?: NowRequest['query']) {
       NICKNAME_SELECTOR,
       SUBJECT_SELECTOR,
       HIT_SELECTOR,
-      TIMESTAMP_SELECTOR,
+      TIMESTAMP_SELECTOR
     ].map(selector => $this.find(selector))
-    const [subject, hit, timestamp] = rest.map($element =>
-      $element.textWithTrim()
-    )
+    const [subject, hit, timestamp] = rest.map($element => $element.text())
     const nickname = getNickname($nickname)
 
     return {

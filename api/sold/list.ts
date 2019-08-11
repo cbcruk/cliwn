@@ -9,7 +9,7 @@ export default async function(req: NowRequest, res: NowResponse) {
 
   const rest = rows.toArray().map(element => {
     const $this = $(element)
-    const category = $this.find(CATEGORY_SELECTOR).textWithTrim()
+    const category = $this.find(CATEGORY_SELECTOR).text()
 
     return {
       category

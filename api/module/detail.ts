@@ -16,10 +16,13 @@ async function getDetail(endpoint: string) {
     SUBJECT_SELECTOR,
     VIEW_COUNT_SELECTOR,
     TIMESTAMP_SELECTOR,
-    IP_SELECTOR,
+    IP_SELECTOR
   ].map(selector => $(selector))
   const [subject, view_count, timestamp, ip] = rest.map($element =>
-    $element.textWithTrim()
+    $element
+      .text()
+      .trim()
+      .replace(/\t|\n/g, '')
   )
   const [created_date, updated_date] = timestamp
     .split('수정일 : ')

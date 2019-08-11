@@ -26,13 +26,18 @@ async function getComment({ board, id, writer }: NowRequest['query']) {
       const nickname = getNickname($this.find(NICKNAME_SELECOTR))
       const [created_time, updated_time] = $this
         .find(TIMESTAMP_SELECOTR)
-        .textWithTrim()
+        .text()
+        .trim()
         .split('/')
       const [ip, content, like_count] = [
         IP_SELECOTR,
         CONTENT_SELECOTR,
-        LIKE_COUNT_SELECOTR,
-      ].map(selector => $(selector).textWithTrim())
+        LIKE_COUNT_SELECOTR
+      ].map(selector =>
+        $(selector)
+          .text()
+          .trim()
+      )
 
       return {
         comment_sn,
