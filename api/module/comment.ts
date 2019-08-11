@@ -10,7 +10,7 @@ const CONTENT_SELECOTR = '.comment_view'
 const LIKE_COUNT_SELECOTR = '.comment_symph > strong'
 
 async function getComment({ board, id, writer }: NowRequest['query']) {
-  const $ = await getHtml(`${board}/${id}/comment`, {
+  const $ = await getHtml(`${board}/${id}`, {
     writer
   })
 
@@ -34,7 +34,8 @@ async function getComment({ board, id, writer }: NowRequest['query']) {
         CONTENT_SELECOTR,
         LIKE_COUNT_SELECOTR
       ].map(selector =>
-        $(selector)
+        $this
+          .find(selector)
           .text()
           .trim()
       )
