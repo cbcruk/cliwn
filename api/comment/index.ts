@@ -1,7 +1,7 @@
 import { NowRequest, NowResponse } from '@now/node'
 import getComment from '../module/comment'
 
-async function sold(req: NowRequest, res: NowResponse) {
+async function comment(req: NowRequest, res: NowResponse) {
   try {
     const items = await getComment(req.query)
 
@@ -13,4 +13,4 @@ async function sold(req: NowRequest, res: NowResponse) {
   }
 }
 
-export default sold
+export default comment

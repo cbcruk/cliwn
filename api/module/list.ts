@@ -8,7 +8,7 @@ const SUBJECT_SELECTOR = '.subject_fixed'
 const HIT_SELECTOR = '.hit'
 const TIMESTAMP_SELECTOR = '.timestamp'
 
-async function getList(path: string, query?: NowRequest['query']) {
+async function getList(path, query?: NowRequest['query']) {
   const $ = await getHtml(path, {
     params: query
   })

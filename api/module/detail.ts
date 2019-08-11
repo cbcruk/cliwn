@@ -1,7 +1,7 @@
 import { getHtml } from '../lib/cheerio'
 import getNickname from './nickname'
 
-const NICKNAME_SELECTOR = '.nickname'
+const NICKNAME_SELECTOR = '.post_info .nickname'
 const SUBJECT_SELECTOR = '.post_subject > span:last-child'
 const VIEW_COUNT_SELECTOR = '.view_count'
 const TIMESTAMP_SELECTOR = '.post_author > span:first-child'
