@@ -30,11 +30,5 @@ let make = (~page) => {
 
   let {items} = state;
 
-  <div>
-    {switch (items) {
-     | items => <Rows page items />
-     | [||] => React.null
-     }}
-    <Nav />
-  </div>;
+  <div> <Rows page items /> <Nav /> </div>;
 };
