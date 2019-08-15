@@ -1,4 +1,4 @@
-type route = 
+type route =
   | Page(string)
   | Detail(string, string)
   | NotFound;
@@ -6,16 +6,17 @@ type route =
 [@react.component]
 let make = () => {
   let url = ReasonReactRouter.useUrl();
-  let route = switch (url.path) {
-    | [page] => Page(page)
-    | [page, id] => Detail(page, id)
+  let route =
+    switch (url.path) {
+    | [board] => Page(board)
+    | [board, id] => Detail(board, id)
     | _ => NotFound
-  };
+    };
 
   <div>
     {switch (route) {
-     | Page(page) => <Page page />
-     | Detail(page, id) => <Detail page id />
+     | Page(board) => <Page board />
+     | Detail(board, id) => <Detail board id />
      | NotFound => <NotFound />
      }}
   </div>;

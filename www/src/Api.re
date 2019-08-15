@@ -64,9 +64,9 @@ module Decode = {
     };
 };
 
-let fetchItems = (page, callback) =>
+let fetchItems = (~board, callback) =>
   Js.Promise.(
-    Fetch.fetch("/api/" ++ page)
+    Fetch.fetch({j|/api/list?board=$board|j})
     |> then_(Fetch.Response.json)
     |> then_(json =>
          json
@@ -81,9 +81,9 @@ let fetchItems = (page, callback) =>
     |> ignore
   );
 
-let fetchItem = (page, id, callback) =>
+let fetchItem = (~board, ~id, callback) =>
   Js.Promise.(
-    Fetch.fetch({j|/api/$page?id=$id|j})
+    Fetch.fetch({j|/api/detail?board=$board&id=$id|j})
     |> then_(Fetch.Response.json)
     |> then_(json =>
          json

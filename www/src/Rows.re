@@ -1,7 +1,7 @@
 open Belt;
 
 [@react.component]
-let make = (~page, ~items: Api.items) => {
+let make = (~board, ~items: Api.items) => {
   <table>
     <tbody>
       {Array.map(items, item =>
@@ -11,7 +11,7 @@ let make = (~page, ~items: Api.items) => {
             | _ => React.null
             }}
            <td>
-             <Link href={page ++ "/" ++ item.board_sn}>
+             <Link href={board ++ "/" ++ item.board_sn}>
                {React.string(item.subject)}
              </Link>
            </td>

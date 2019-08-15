@@ -8,7 +8,7 @@ type action =
   | Loaded(Api.detail);
 
 [@react.component]
-let make = (~page, ~id) => {
+let make = (~board, ~id) => {
   let (state, dispatch) =
     React.useReducer(
       (state, action) =>
@@ -22,10 +22,10 @@ let make = (~page, ~id) => {
   React.useEffect2(
     () => {
       dispatch(Fetch);
-      Api.fetchItem(page, id, item => Loaded(item)->dispatch);
+      Api.fetchItem(~board, ~id, item => Loaded(item)->dispatch);
       None;
     },
-    (page, id),
+    (board, id),
   );
 
   let {item} = state;
