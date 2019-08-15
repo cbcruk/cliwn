@@ -1,4 +1,3 @@
-import { NowRequest } from '@now/node'
 import { getHtml } from '../lib/cheerio'
 import getNickname from './nickname'
 
@@ -8,7 +7,15 @@ const SUBJECT_SELECTOR = '.subject_fixed'
 const HIT_SELECTOR = '.hit'
 const TIMESTAMP_SELECTOR = '.timestamp'
 
-async function getList(path, query?: NowRequest['query']) {
+type Od = 'T31' | 'T32' | 'T33' | 'T34'
+type Po = number | string
+
+interface Query {
+  od: Od
+  po: Po
+}
+
+async function getList(path, query?: Query) {
   const $ = await getHtml(path, {
     params: query
   })
