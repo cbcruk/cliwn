@@ -25,11 +25,11 @@ async function getList(path, query?: Query) {
     const $this = $(element)
 
     const {
-      authorId: author_id,
+      authorId,
       boardSn: board_sn,
       commentCount: comment_count
     }: {
-      authorId: string
+      authorId: number | string
       boardSn: number
       commentCount: number
     } = $this.data()
@@ -47,7 +47,7 @@ async function getList(path, query?: Query) {
       nickname,
       hit: parseInt(hit, 10),
       timestamp,
-      author_id,
+      author_id: authorId.toString(),
       board_sn: board_sn.toString(),
       comment_count
     }
