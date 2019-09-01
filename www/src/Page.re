@@ -9,6 +9,9 @@ type action =
 
 [@react.component]
 let make = (~board) => {
+  let url = ReasonReactRouter.useUrl();
+  let isOpen = url.hash ? true : false;
+
   let (state, dispatch) =
     React.useReducer(
       (state, action) =>
@@ -30,5 +33,11 @@ let make = (~board) => {
 
   let {items} = state;
 
-  <div> <Rows board items /> <Nav /> </div>;
+  <div>
+    <Rows board items />
+    <Nav />
+    <Modal ariaHideApp=false isOpen=false>
+      {React.string("detail...")}
+    </Modal>
+  </div>;
 };
