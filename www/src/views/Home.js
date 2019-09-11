@@ -1,9 +1,10 @@
 import React from 'react'
-import { Text, View, FlatList } from 'react-native'
+import { View } from 'react-native'
+import Favorite from '../components/Home/Favorite'
 
 const Home = () => (
   <View>
-    <FlatList data={[]} renderItem={({ item }) => <Text>{item.key}</Text>} />
+    <Favorite />
   </View>
 )
 
