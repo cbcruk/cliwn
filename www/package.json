@@ -10,10 +10,13 @@
     "react-native-web": "^0.11.7",
     "react-redux": "^7.1.1",
     "react-scripts": "3.1.1",
+    "react-virtualized-auto-sizer": "^1.0.2",
+    "react-window": "^1.8.5",
+    "react-window-infinite-loader": "^1.0.4",
     "redux-starter-kit": "^0.7.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

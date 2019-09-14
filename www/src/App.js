@@ -9,7 +9,7 @@ import store from './store'
 
 const App = () => (
   <Provider store={store}>
-    <Router>
+    <Router style={{ flex: 1 }}>
       <Home path="/" />
       <List path="/:page" />
       <Detail path="/:page/:id" />

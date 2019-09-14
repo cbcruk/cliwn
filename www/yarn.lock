@@ -6129,6 +6129,11 @@ mem@^4.0.0:
     mimic-fn "^2.0.0"
     p-is-promise "^2.0.0"
 
+"memoize-one@>=3.1.1 <6":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.1.1.tgz#047b6e3199b508eaec03504de71229b8eb1d75c0"
+  integrity sha512-HKeeBpWvqiVJD57ZUAsJNm71eHTykffzcLZVYWiVfQeI1rJtuEaS7hQiEpWfVVk18donPwJEcFKIkCmPJNOhHA==
+
 memory-fs@^0.4.0, memory-fs@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/memory-fs/-/memory-fs-0.4.1.tgz#3a9a20b8462523e447cfbc7e8bb80ed667bfc552"
@@ -8200,6 +8205,24 @@ react-timer-mixin@^0.13.4:
   version "0.13.4"
   resolved "https://registry.yarnpkg.com/react-timer-mixin/-/react-timer-mixin-0.13.4.tgz#75a00c3c94c13abe29b43d63b4c65a88fc8264d3"
   integrity sha512-4+ow23tp/Tv7hBM5Az5/Be/eKKF7DIvJ09voz5LyHGQaqqz9WV8YMs31eFvcYQs7d451LSg7kDJV70XYN/Ug/Q==
+
+react-virtualized-auto-sizer@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-virtualized-auto-sizer/-/react-virtualized-auto-sizer-1.0.2.tgz#a61dd4f756458bbf63bd895a92379f9b70f803bd"
+  integrity sha512-MYXhTY1BZpdJFjUovvYHVBmkq79szK/k7V3MO+36gJkWGkrXKtyr4vCPtpphaTLRAdDNoYEYFZWE8LjN+PIHNg==
+
+react-window-infinite-loader@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-window-infinite-loader/-/react-window-infinite-loader-1.0.4.tgz#5cbdf7086d816f9a2a0ad6d5b2cfc9fa26522b9c"
+  integrity sha512-ysEwv41t/aeu6fFkv2U/R+NadKtqUKYjsU+O9O7C58jkk6RuVgkRwdHY37EXmHOkZUv4f8zj2Rae70Uxvu6H+A==
+
+react-window@^1.8.5:
+  version "1.8.5"
+  resolved "https://registry.yarnpkg.com/react-window/-/react-window-1.8.5.tgz#a56b39307e79979721021f5d06a67742ecca52d1"
+  integrity sha512-HeTwlNa37AFa8MDZFZOKcNEkuF2YflA0hpGPiTT9vR7OawEt+GZbfM6wqkBahD3D3pUjIabQYzsnY/BSJbgq6Q==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    memoize-one ">=3.1.1 <6"
 
 react@^16.9.0:
   version "16.9.0"

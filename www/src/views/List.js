@@ -1,37 +1,22 @@
 import React, { useEffect } from 'react'
-import { FlatList } from 'react-native'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchList } from '../store/slices/list'
-import Item from '../components/List/Item'
-import Footer from '../components/List/Footer'
-
-const keyExtractor = item => item.board_sn
+import { useSelector, useDispatch } from 'react-redux'
+import Items from '../components/List/Items'
+import { resetItems } from '../store/slices/list'
+import pick from 'lodash/pick'
 
 const List = ({ page }) => {
   const dispatch = useDispatch()
-  const { items, pageOffset, isLoading } = useSelector(state => state.list)
+  const { items, board } = useSelector(state =>
+    pick(state.list, ['items', 'board'])
+  )
 
   useEffect(() => {
-    if (page) {
-      if (items.length === 0) {
-        dispatch(fetchList(page))
-      }
+    if (page !== board) {
+      dispatch(resetItems())
     }
-  }, [dispatch, page, items])
+  }, [dispatch, page, board])
 
-  return (
-    <FlatList
-      data={items}
-      renderItem={({ item, index }) => <Item {...{ ...item, index }} />}
-      keyExtractor={keyExtractor}
-      ListFooterComponent={
-        <Footer
-          isLoading={isLoading}
-          onLoadMore={() => dispatch(fetchList(page, pageOffset))}
-        />
-      }
-    />
-  )
+  return <Items {...{ page, items }} />
 }
 
 export default List
