@@ -1,4 +1,4 @@
-import { querySelectorAll } from '../../../../lib/utils'
+import { querySelectorAll } from '../utils'
 
 function getImages(article: HTMLElement) {
   const images = querySelectorAll(article, 'img').map((img) => {

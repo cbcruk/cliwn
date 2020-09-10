@@ -3,8 +3,8 @@ import {
   altContent,
   textContent,
   numberContent,
-} from '../../../../lib/utils'
-import { toISOString } from '../../../../lib/time'
+} from '../utils'
+import { toISOString } from '../time'
 import * as SELECTORS from './selector'
 
 function getBasicInfo(document: Document) {
@@ -18,14 +18,14 @@ function getBasicInfo(document: Document) {
     writer,
     category,
   ] = querySelectors(document, [
-    SELECTORS.NICKNAME,
-    SELECTORS.SUBJECT,
-    SELECTORS.VIEW_COUNT,
-    SELECTORS.TIMESTAMP,
-    SELECTORS.IP,
-    SELECTORS.ARTICLE,
-    SELECTORS.WRITER,
-    SELECTORS.CATEGORY,
+    SELECTORS.DETAIL_NICKNAME,
+    SELECTORS.DETAIL_SUBJECT,
+    SELECTORS.DETAIL_VIEW_COUNT,
+    SELECTORS.DETAIL_TIMESTAMP,
+    SELECTORS.DETAIL_IP,
+    SELECTORS.DETAIL_ARTICLE,
+    SELECTORS.DETAIL_WRITER,
+    SELECTORS.DETAIL_CATEGORY,
   ])
 
   return {

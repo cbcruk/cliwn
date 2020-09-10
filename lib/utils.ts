@@ -24,7 +24,11 @@ export function textContent(
   element: HTMLElement | ChildNode | null,
   defaultValue = ''
 ) {
-  return element?.textContent?.replace(/\t/g, '').trim() ?? defaultValue
+  if (!element) {
+    return defaultValue
+  }
+
+  return element.textContent.replace(/\t/g, '').trim() || defaultValue
 }
 
 export function numberContent(element: HTMLElement | null, defaultValue = 0) {
@@ -32,9 +36,13 @@ export function numberContent(element: HTMLElement | null, defaultValue = 0) {
 }
 
 export function altContent(element: HTMLElement | null) {
+  if (!element) {
+    return ''
+  }
+
   return (
-    element?.textContent?.trim() ||
-    element?.querySelector('img')?.getAttribute('alt') ||
+    element.textContent.trim() ||
+    element.querySelector('img').getAttribute('alt') ||
     ''
   )
 }

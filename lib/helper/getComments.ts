@@ -3,7 +3,7 @@ import {
   querySelectors,
   textContent,
   altContent,
-} from '../../../../lib/utils'
+} from '../utils'
 import * as SELECTORS from './selector'
 
 function getComments(document: Document) {

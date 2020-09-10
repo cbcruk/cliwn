@@ -1,9 +1,8 @@
-import { NextApiResponse, NextApiRequest } from 'next'
 import rpc from '../../lib/rpc'
-import getSoldList from './helper/getSoldList'
-import getPageOffset from './helper/getPageOffset'
+import getSoldList from '../../lib/helper/getSoldList'
+import getPageOffset from '../../lib/helper/getPageOffset'
 
-async function sold(req: NextApiRequest, res: NextApiResponse) {
+async function sold(req, res) {
   const document = await rpc('/sold', {
     params: req.query,
   })

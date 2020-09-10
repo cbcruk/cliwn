@@ -4,19 +4,19 @@ import {
   altContent,
   textContent,
   numberContent,
-} from '../../../lib/utils'
+} from '../utils'
+import { toISOString } from '../time'
 import * as SELECTORS from './selector'
-import { toISOString } from '../../../lib/time'
 
 function getSoldList(document: Document) {
-  const list = querySelectorAll(document, SELECTORS.ROW).map((row) => {
+  const list = querySelectorAll(document, SELECTORS.LIST_ROW).map((row) => {
     const { authorId = '', boardSn = '', commentCount = '0' } = row.dataset
     const [nickname, subject, hit, timestamp, category] = querySelectors(row, [
-      SELECTORS.NICKNAME,
-      SELECTORS.SUBJECT,
-      SELECTORS.HIT,
-      SELECTORS.TIMESTAMP,
-      SELECTORS.CATEGORY,
+      SELECTORS.LIST_NICKNAME,
+      SELECTORS.LIST_SUBJECT,
+      SELECTORS.LIST_HIT,
+      SELECTORS.LIST_TIMESTAMP,
+      SELECTORS.LIST_CATEGORY,
     ])
 
     return {
