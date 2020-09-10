@@ -1,12 +1,8 @@
-import { AppRegistry } from 'react-native'
+import React from 'react'
+import { render } from 'react-dom'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
-AppRegistry.registerComponent('App', () => App)
-
-AppRegistry.runApplication('App', {
-  initialProps: {},
-  rootTag: document.getElementById('root'),
-})
+render(<App />, document.getElementById('root'))
 
 serviceWorker.unregister()

@@ -3,23 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor/core": "2.4.0",
+    "@capacitor/ios": "^2.4.0",
+    "@ionic/react": "^5.3.2",
+    "@ionic/react-router": "^5.3.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@reach/router": "^1.2.0",
     "axios": "^0.20.0",
+    "dayjs": "^1.8.35",
+    "ionicons": "^5.1.2",
     "jsdom": "^16.4.0",
     "lodash": "^4.17.20",
     "next": "^9.5.3",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-native-web": "^0.11.7",
-    "react-redux": "^7.1.1",
-    "react-scripts": "3.1.1",
-    "react-virtualized-auto-sizer": "^1.0.2",
-    "react-window": "^1.8.5",
-    "react-window-infinite-loader": "^1.0.4",
-    "redux-starter-kit": "^0.7.0",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "react-query": "^2.15.1",
+    "react-query-devtools": "^2.4.5",
+    "react-router-dom": "^5.2.0",
     "zustand": "^3.0.3"
   },
   "scripts": {
@@ -44,9 +45,13 @@
     ]
   },
   "devDependencies": {
+    "@capacitor/cli": "2.4.0",
+    "@types/jsdom": "^16.2.4",
+    "@types/lodash": "^4.14.161",
     "@types/node": "^12.7.4",
     "@types/react": "^16.9.2",
     "@types/react-native": "^0.60.11",
-    "@types/react-redux": "^7.1.2"
+    "@types/react-redux": "^7.1.2",
+    "react-scripts": "3.4.0"
   }
 }

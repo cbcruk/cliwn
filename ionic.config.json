@@ -1,0 +1,7 @@
+{
+  "name": "cliwn",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
