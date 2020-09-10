@@ -1,0 +1,17 @@
+export const NICKNAME = '.post_info .nickname'
+export const STICKER = `${NICKNAME} > img`
+export const SUBJECT = '.post_subject > span:nth-child(2)'
+export const VIEW_COUNT = '.view_count'
+export const TIMESTAMP = '.post_author > span:first-child'
+export const IP = '.post_author > span:last-child'
+export const ARTICLE = '.post_article'
+export const WRITER = '#writer'
+export const CATEGORY = '.post_category'
+export const PRODUCT_INFO = '.product_info'
+
+export const COMMENT = '.comment_row'
+export const COMMENT_NICKNAME = '.nickname'
+export const COMMENT_TIMESTAMP = '.timestamp'
+export const COMMENT_IP = '.ip_address'
+export const COMMENT_CONTENT = '.comment_view'
+export const COMMENT_LIKE_COUNT = '.comment_symph > strong'

@@ -20,7 +20,10 @@ export function querySelectors(
   )
 }
 
-export function textContent(element: HTMLElement | null, defaultValue = '') {
+export function textContent(
+  element: HTMLElement | ChildNode | null,
+  defaultValue = ''
+) {
   return element?.textContent?.replace(/\t/g, '').trim() ?? defaultValue
 }
 
