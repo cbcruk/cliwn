@@ -4,7 +4,6 @@ import {
   textContent,
   numberContent,
 } from '../utils'
-import { toISOString } from '../time'
 import * as SELECTORS from './selector'
 
 function getBasicInfo(document: Document) {
@@ -35,8 +34,8 @@ function getBasicInfo(document: Document) {
     ip: textContent(ip),
     writer: writer.getAttribute('value'),
     category: textContent(category),
-    createdDate: toISOString(textContent(timestamp.childNodes[2])),
-    updatedDate: toISOString(textContent(timestamp.childNodes[3])),
+    createdDate: textContent(timestamp.childNodes[2]),
+    updatedDate: textContent(timestamp.childNodes[3]),
     article,
   }
 }

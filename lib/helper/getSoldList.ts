@@ -5,7 +5,6 @@ import {
   textContent,
   numberContent,
 } from '../utils'
-import { toISOString } from '../time'
 import * as SELECTORS from './selector'
 
 function getSoldList(document: Document) {
@@ -23,7 +22,7 @@ function getSoldList(document: Document) {
       nickname: altContent(nickname),
       subject: textContent(subject),
       hit: numberContent(hit),
-      timestamp: toISOString(textContent(timestamp)),
+      timestamp: textContent(timestamp),
       category: textContent(category),
       authorId,
       boardSn,
