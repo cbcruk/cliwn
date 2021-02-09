@@ -1,15 +1,16 @@
 import React from 'react'
 import { IonContent } from '@ionic/react'
-import ProgressBar from './ProgressBar'
+import useContent from '../../../pages/List/useContent'
 import List from './List'
 import InfiniteScroll from './InfiniteScroll'
 
-function Content({ data, fetchMore, isFetching, isLoading }) {
+function Content() {
+  const contentRef = useContent()
+
   return (
-    <IonContent>
-      <ProgressBar isFetching={isFetching} />
-      <List data={data} />
-      <InfiniteScroll fetchMore={fetchMore} isLoading={isLoading} />
+    <IonContent ref={contentRef}>
+      <List />
+      <InfiniteScroll />
     </IonContent>
   )
 }

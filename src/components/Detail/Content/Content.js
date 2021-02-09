@@ -1,33 +1,31 @@
 import React from 'react'
-import { IonContent, IonSpinner, IonRow } from '@ionic/react'
+import { useContextSelector } from 'use-context-selector'
+import { IonContent } from '@ionic/react'
 import Title from './Title'
 import ItemInfo from './ItemInfo'
 import SellerInfo from './SellerInfo'
 import Desc from './Desc'
+import DetailContext from '../../../pages/Detail/context'
+import { Spinner } from '../../shared'
 
-function Content({ item, isLoading }) {
-  const {
-    subject,
-    content,
-    price,
-    status,
-    boughtDate,
-    how,
-    area,
-    nickname,
-  } = item
+function Content() {
+  const { isLoading, data } = useContextSelector(
+    DetailContext,
+    (result) => result || {}
+  )
 
   return (
     <IonContent className="ion-padding">
-      {isLoading && (
-        <IonRow class="ion-justify-content-center">
-          <IonSpinner name="crescent" />
-        </IonRow>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          <Title>{data?.subject}</Title>
+          <ItemInfo />
+          <SellerInfo />
+          <Desc>{data?.content}</Desc>
+        </>
       )}
-      <Title>{subject}</Title>
-      <ItemInfo price={price} status={status} boughtDate={boughtDate} />
-      <SellerInfo how={how} area={area} nickname={nickname} />
-      <Desc>{content}</Desc>
     </IonContent>
   )
 }

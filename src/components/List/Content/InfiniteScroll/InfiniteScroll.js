@@ -1,13 +1,23 @@
 import React from 'react'
 import { IonInfiniteScroll, IonInfiniteScrollContent } from '@ionic/react'
+import { useContextSelector } from 'use-context-selector'
+import ListContext from '../../../../pages/List/context'
 
-function InfiniteScroll({ fetchMore, isLoading }) {
+function InfiniteScroll() {
+  const { fetchNextPage, isFetchingNextPage } = useContextSelector(
+    ListContext,
+    ({ fetchNextPage, isFetchingNextPage }) => ({
+      fetchNextPage,
+      isFetchingNextPage,
+    })
+  )
+
   return (
     <IonInfiniteScroll
       threshold="100px"
-      disabled={isLoading}
+      disabled={isFetchingNextPage}
       onIonInfinite={async (e) => {
-        await fetchMore()
+        await fetchNextPage()
         e.target.complete()
       }}
     >

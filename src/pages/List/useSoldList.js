@@ -1,20 +1,22 @@
 import { useInfiniteQuery } from 'react-query'
 import axios from 'axios'
 
+export const QUERY_KEY = 'soldList'
+
 function useSoldList() {
   const result = useInfiniteQuery(
-    'soldList',
-    async (_key, po = 0) => {
+    QUERY_KEY,
+    async ({ pageParam }) => {
       const { data } = await axios.get('/api/sold', {
         params: {
-          po,
+          po: pageParam || 0,
         },
       })
 
       return data
     },
     {
-      getFetchMore: ({ links }) => links.next,
+      getNextPageParam: ({ links }) => links.next,
     }
   )
 

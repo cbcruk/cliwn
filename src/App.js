@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { IonApp, IonRouterOutlet } from '@ionic/react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { IonApp, IonRouterOutlet, setupConfig } from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
 import { List, Detail } from './pages'
 import '@ionic/react/css/core.css'
@@ -15,16 +16,31 @@ import '@ionic/react/css/flex-utils.css'
 import '@ionic/react/css/display.css'
 import './theme/variables.css'
 
+setupConfig({
+  spinner: 'crescent',
+})
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      suspense: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+})
+
 function App() {
   return (
-    <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route exact path="/" component={List} />
-          <Route path="/:id" component={Detail} />
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </IonApp>
+    <QueryClientProvider client={queryClient}>
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route exact path="/" component={List} />
+            <Route path="/:id" component={Detail} />
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    </QueryClientProvider>
   )
 }
 

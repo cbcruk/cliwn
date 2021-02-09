@@ -6,8 +6,11 @@ import {
   IonBackButton,
   IonButtons,
 } from '@ionic/react'
+import { useParams } from 'react-router-dom'
 
-function Header({ id }) {
+function Header() {
+  const { id } = useParams()
+
   return (
     <IonHeader>
       <IonToolbar>
