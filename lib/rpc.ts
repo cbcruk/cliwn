@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios'
 import { JSDOM } from 'jsdom'
 
 const instance = axios.create({
-  baseURL: 'https://www.clien.net/service/board',
+  baseURL: process.env.API_URL,
 })
 
 async function html2document(html: string) {
