@@ -18,3 +18,4 @@ yarn-error.log*
 .vercel
 .eslintcache
 .env
+serviceAccountKey.json
