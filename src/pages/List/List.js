@@ -1,9 +1,10 @@
 import { useRef } from 'react'
 import { IonPage } from '@ionic/react'
 import { Header, Content, ProgressBar } from '../../components/List'
+import { Spinner } from '../../components/shared'
+import Menu from '../../components/shared/Menu'
 import useSoldList from './useSoldList'
 import ListContext from './context'
-import { Spinner } from '../../components/shared'
 
 function List() {
   const contentRef = useRef(null)
@@ -11,7 +12,8 @@ function List() {
 
   return (
     <ListContext.Provider value={{ ...result, contentRef }}>
-      <IonPage>
+      <Menu />
+      <IonPage id="list-page">
         <Header />
         {result.isLoading && <Spinner />}
         <ProgressBar />

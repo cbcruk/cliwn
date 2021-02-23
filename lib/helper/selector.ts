@@ -18,6 +18,8 @@ export const DETAIL_WRITER = '#writer'
 export const DETAIL_CATEGORY = '.post_category'
 export const DETAIL_PRODUCT_INFO = '.product_info'
 
+export const CONTACT_INFO = '.popup_contact td'
+
 export const COMMENT = '.comment_row'
 export const COMMENT_NICKNAME = '.nickname'
 export const COMMENT_TIMESTAMP = '.timestamp'

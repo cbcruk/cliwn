@@ -7,8 +7,9 @@ import {
   IonButtons,
   IonButton,
   IonIcon,
+  IonMenuToggle,
 } from '@ionic/react'
-import { refresh } from 'ionicons/icons'
+import { menuOutline, refresh } from 'ionicons/icons'
 import useContent from '../../../pages/List/useContent'
 import { QUERY_KEY } from '../../../pages/List/useSoldList'
 
@@ -19,6 +20,13 @@ function Header() {
   return (
     <IonHeader>
       <IonToolbar>
+        <IonButtons slot="start">
+          <IonMenuToggle>
+            <IonButton>
+              <IonIcon icon={menuOutline} />
+            </IonButton>
+          </IonMenuToggle>
+        </IonButtons>
         <IonTitle>사고팔고</IonTitle>
         <IonButtons slot="end">
           <IonButton

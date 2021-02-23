@@ -1,5 +1,5 @@
 function getContent(article: HTMLElement) {
-  const content = article.textContent.trim().replace(/  /g, '')
+  const content = article.innerHTML.trim()
 
   return content
 }
