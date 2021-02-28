@@ -1,12 +1,17 @@
-import { querySelectorAll, textContent } from '../utils'
-import { DETAIL_PRODUCT_INFO } from './selector'
+import { domUtils } from '@cbcruk/utils'
+import * as SELECTORS from './selector'
 
-function getProductInfo(document: Document) {
-  const info = querySelectorAll(document, DETAIL_PRODUCT_INFO).map((element) =>
-    textContent(element).replace(/\n/g, '')
+const { text } = domUtils
+
+function getProductInfo(element: HTMLElement) {
+  const infoNodeList = element.querySelectorAll<HTMLElement>(
+    SELECTORS.DETAIL_PRODUCT_INFO
   )
+  const [how, status, price, boughtDate, area] = Array.from(
+    infoNodeList
+  ).map((element) => text(element).replace(/\n/g, ''))
 
-  return info
+  return { how, status, price, boughtDate, area }
 }
 
 export default getProductInfo

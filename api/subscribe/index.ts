@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import admin, { SUBSCRIBE_TOPIC_SOLD_KEYWORDS } from '../../lib/firebase'
+import { SUBSCRIBE_TOPIC_SOLD_KEYWORDS } from '../../lib/constants'
+import admin from '../../lib/firebase'
 
 async function subscribe(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {

@@ -1,31 +1,22 @@
-import getComments from './getComments'
-import getContent from './getContent'
-import getImages from './getImages'
-import getProductInfo from './getProductInfo'
 import getBasicInfo from './getBasicInfo'
+import getProductInfo from './getProductInfo'
 import getContactInfo from './getContactInfo'
+import getContent from './getContent'
+import getComments from './getComments'
 
-function getData(document: Document) {
-  const { article, ...basicInfo } = getBasicInfo(document)
-  const [how, status, price, boughtDate, area] = getProductInfo(document)
-  const [name, mobile, time] = getContactInfo(document)
-  const comments = getComments(document)
-  const content = getContent(article)
-  const images = getImages(article)
+function getData(element: HTMLElement) {
+  const basicInfo = getBasicInfo(element)
+  const productInfo = getProductInfo(element)
+  const contactInfo = getContactInfo(element)
+  const comments = getComments(element)
+  const content = getContent(element)
 
   return {
     ...basicInfo,
-    content,
-    images,
-    how,
-    status,
-    price,
-    boughtDate,
-    area,
+    ...productInfo,
+    ...contactInfo,
     comments,
-    name,
-    mobile,
-    time,
+    content,
   }
 }
 

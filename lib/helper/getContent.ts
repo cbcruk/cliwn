@@ -1,5 +1,9 @@
-function getContent(article: HTMLElement) {
-  const content = article.innerHTML.trim()
+import * as SELECTORS from './selector'
+
+function getContent(element: HTMLElement) {
+  const content = element
+    .querySelector(SELECTORS.DETAIL_ARTICLE)
+    .innerHTML.trim()
 
   return content
 }

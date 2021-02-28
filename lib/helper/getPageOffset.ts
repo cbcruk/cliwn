@@ -1,10 +1,14 @@
-import { querySelectorAll } from '../utils'
-import { LIST_PO } from './selector'
+import { domUtils } from '@cbcruk/utils'
+import { flow, toNumber } from 'lodash/fp'
+import * as SELECTORS from './selector'
+
+const { value } = domUtils
 
 function getPageOffset(document: Document) {
-  const [po] = querySelectorAll(document, LIST_PO)
+  const poElement = document.querySelector<HTMLInputElement>(SELECTORS.LIST_PO)
+  const poValue = flow(value, toNumber)(poElement)
 
-  return parseInt(po.getAttribute('value'), 10)
+  return poValue
 }
 
 export default getPageOffset

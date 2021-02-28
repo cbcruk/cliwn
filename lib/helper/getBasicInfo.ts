@@ -1,42 +1,27 @@
-import {
-  querySelectors,
-  altContent,
-  textContent,
-  numberContent,
-} from '../utils'
+import { domUtils } from '@cbcruk/utils'
 import * as SELECTORS from './selector'
 
-function getBasicInfo(document: Document) {
-  const [
-    nickname,
-    subject,
-    viewCount,
-    timestamp,
-    ip,
-    article,
-    writer,
-    category,
-  ] = querySelectors(document, [
-    SELECTORS.DETAIL_NICKNAME,
+const { text, number, alt } = domUtils
+
+function getBasicInfo(element: HTMLElement) {
+  const [subject, nickname, viewCount, timestamp, ip, category] = [
     SELECTORS.DETAIL_SUBJECT,
+    SELECTORS.DETAIL_NICKNAME,
     SELECTORS.DETAIL_VIEW_COUNT,
     SELECTORS.DETAIL_TIMESTAMP,
     SELECTORS.DETAIL_IP,
-    SELECTORS.DETAIL_ARTICLE,
-    SELECTORS.DETAIL_WRITER,
     SELECTORS.DETAIL_CATEGORY,
-  ])
+  ].map((selector) => element.querySelector(selector))
+  const [, , createdDate, updatedDate] = timestamp.childNodes
 
   return {
-    nickname: altContent(nickname),
-    subject: textContent(subject),
-    viewCount: numberContent(viewCount),
-    ip: textContent(ip),
-    writer: writer.getAttribute('value'),
-    category: textContent(category),
-    createdDate: textContent(timestamp.childNodes[2]),
-    updatedDate: textContent(timestamp.childNodes[3]),
-    article,
+    subject: text(subject),
+    nickname: alt(nickname),
+    viewCount: number(viewCount),
+    ip: text(ip),
+    category: text(category),
+    createdDate: text(createdDate),
+    updatedDate: text(updatedDate),
   }
 }
 

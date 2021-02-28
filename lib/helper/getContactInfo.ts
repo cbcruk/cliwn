@@ -1,12 +1,17 @@
-import { querySelectorAll, textContent } from '../utils'
-import { CONTACT_INFO } from './selector'
+import { domUtils } from '@cbcruk/utils'
+import * as SELECTORS from './selector'
 
-function getContactInfo(document: Document) {
-  const info = querySelectorAll(document, CONTACT_INFO).map((element) =>
-    textContent(element).replace(/\n/g, '')
+const { text } = domUtils
+
+function getContactInfo(element: HTMLElement) {
+  const infoNodeList = element.querySelectorAll<HTMLElement>(
+    SELECTORS.DETAIL_CONTACT_INFO
+  )
+  const [name, mobile, time] = Array.from(infoNodeList).map((info) =>
+    text(info).replace(/\n/g, '')
   )
 
-  return info
+  return { name, mobile, time }
 }
 
 export default getContactInfo

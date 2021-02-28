@@ -1,10 +1,11 @@
-import rpc from '../../lib/rpc'
+import { getDocument } from '@cbcruk/utils'
+import { NextApiRequest, NextApiResponse } from 'next'
 import getSoldList from '../../lib/helper/getSoldList'
 import getPageOffset from '../../lib/helper/getPageOffset'
 
-async function sold(req, res) {
+async function sold(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const document = await rpc('/sold', {
+    const document = await getDocument('/board/sold', {
       params: req.query,
     })
     const data = getSoldList(document)

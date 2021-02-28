@@ -1,42 +1,35 @@
-import {
-  querySelectorAll,
-  querySelectors,
-  textContent,
-  altContent,
-} from '../utils'
+import { domUtils } from '@cbcruk/utils'
 import * as SELECTORS from './selector'
 
-function getComments(document: Document) {
-  const comments = querySelectorAll(document, SELECTORS.COMMENT).map(
-    (comment) => {
-      const { commentSn = null, authorId = null } = comment.dataset
-      const [
-        nickname,
-        timestamp,
-        ip,
-        content,
-        likeCount,
-      ] = querySelectors(comment, [
-        SELECTORS.COMMENT_NICKNAME,
-        SELECTORS.COMMENT_TIMESTAMP,
-        SELECTORS.COMMENT_IP,
-        SELECTORS.COMMENT_CONTENT,
-        SELECTORS.COMMENT_LIKE_COUNT,
-      ])
-      const [created_time, updated_time] = textContent(timestamp).split('/')
+const { text, alt } = domUtils
 
-      return {
-        commentSn,
-        authorId,
-        nickname: altContent(nickname),
-        ip: textContent(ip),
-        created_time,
-        updated_time,
-        likeCount: textContent(likeCount),
-        content: textContent(content).replace(/\t/g, ''),
-      }
-    }
+function getComments(element: HTMLElement) {
+  const wrapper = element.querySelector(SELECTORS.COMMENT_WRAPPER)
+  const commentNodeList = wrapper.querySelectorAll<HTMLElement>(
+    SELECTORS.COMMENT
   )
+  const comments = Array.from(commentNodeList).map((comment) => {
+    const { commentSn = null, authorId = null } = comment.dataset
+    const [nickname, timestamp, ip, content, likeCount] = [
+      SELECTORS.COMMENT_NICKNAME,
+      SELECTORS.COMMENT_TIMESTAMP,
+      SELECTORS.COMMENT_IP,
+      SELECTORS.COMMENT_CONTENT,
+      SELECTORS.COMMENT_LIKE_COUNT,
+    ].map((selector) => comment.querySelector(selector))
+    const [created_time, updated_time] = text(timestamp).split('/')
+
+    return {
+      commentSn,
+      authorId,
+      nickname: alt(nickname),
+      ip: text(ip),
+      created_time,
+      updated_time,
+      likeCount: text(likeCount),
+      content: text(content).replace(/\t/g, ''),
+    }
+  })
 
   return comments
 }
