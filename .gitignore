@@ -19,3 +19,4 @@ yarn-error.log*
 .eslintcache
 .env
 serviceAccountKey.json
+.npmrc
