@@ -1,6 +1,6 @@
 import { IonAlert } from '@ionic/react'
 import { useAtom } from 'jotai'
-import { REQUEST_LOGIN, statusAtom } from '../Sign/atom'
+import { IDLE, REQUEST_LOGIN, statusAtom } from '../Sign/atom'
 import useForm from './useForm'
 
 function SignIn() {
@@ -38,9 +38,10 @@ function SignIn() {
         },
         {
           text: 'Ok',
-          handler() {
+          async handler() {
             setStatus(REQUEST_LOGIN)
-            handleSubmit()
+            await handleSubmit()
+            setStatus(IDLE)
           },
         },
       ]}

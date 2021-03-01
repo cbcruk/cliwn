@@ -2,7 +2,8 @@ import { IonItem, IonLabel } from '@ionic/react'
 import { useAtom } from 'jotai'
 import { authAtom } from '../../../atom/auth'
 import SignIn from '../SignIn'
-import { statusAtom, FORM, REQUEST_LOGOUT } from './atom'
+import Spinner from '../Spinner'
+import { statusAtom, FORM, REQUEST_LOGOUT, REQUEST_LOGIN } from './atom'
 
 function Sign() {
   const [auth, setAuth] = useAtom(authAtom)
@@ -10,7 +11,7 @@ function Sign() {
 
   return (
     <>
-      {!auth ? (
+      {!auth && status !== REQUEST_LOGIN ? (
         <IonItem onClick={() => setStatus(FORM)}>
           <IonLabel>로그인</IonLabel>
         </IonItem>
@@ -26,6 +27,7 @@ function Sign() {
         </IonItem>
       )}
       {status === FORM && <SignIn />}
+      {status === REQUEST_LOGIN && <Spinner />}
     </>
   )
 }
