@@ -5,6 +5,7 @@ export const LIST_SUBJECT = '.subject_fixed'
 export const LIST_HIT = '.hit'
 export const LIST_TIMESTAMP = '.timestamp'
 export const LIST_CATEGORY = '.category_fixed'
+export const LIST_PICTURE = '.icon_pic'
 export const LIST_PO = '#po'
 
 export const DETAIL_CATEGORY = '.post_subject > :nth-child(1)'

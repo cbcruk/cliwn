@@ -1,6 +1,8 @@
 import React from 'react'
 import { useContextSelector } from 'use-context-selector'
-import { IonList, IonItem, IonLabel } from '@ionic/react'
+import { IonList, IonItem, IonLabel, IonIcon } from '@ionic/react'
+import { imageOutline } from 'ionicons/icons'
+import classNames from 'classnames'
 import { getTimeFromNow } from '../../../../helper/time'
 import ListContext from '../../../../pages/List/context'
 import { getList } from './helper/getList'
@@ -16,9 +18,21 @@ function List() {
   return (
     <IonList>
       {getList(data.pages).map((item) => (
-        <IonItem key={item.boardSn} routerLink={`/${item.boardSn}`}>
+        <IonItem
+          key={item.boardSn}
+          routerLink={`/${item.boardSn}`}
+          className={classNames([
+            styles.item,
+            {
+              'is-done': item.isDone,
+            },
+          ])}
+        >
           <IonLabel>
-            <h2>{item.subject}</h2>
+            <h2 className={styles.title}>
+              <span className={styles.subject}>{item.subject}</span>
+              {item.hasPicture && <IonIcon icon={imageOutline} />}
+            </h2>
             <p>
               <span className={styles.meta}>{item.nickname}</span>
               <span className={styles.meta}>
