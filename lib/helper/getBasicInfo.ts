@@ -1,7 +1,5 @@
-import { domUtils } from '@cbcruk/utils'
+import { text, number, alt } from '@cbcruk/dom'
 import * as SELECTORS from './selector'
-
-const { text, number, alt } = domUtils
 
 function getBasicInfo(element: HTMLElement) {
   const [subject, nickname, viewCount, timestamp, ip, category] = [

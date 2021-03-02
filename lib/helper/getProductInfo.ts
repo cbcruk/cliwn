@@ -1,7 +1,5 @@
-import { domUtils } from '@cbcruk/utils'
+import { text } from '@cbcruk/dom'
 import * as SELECTORS from './selector'
-
-const { text } = domUtils
 
 function getProductInfo(element: HTMLElement) {
   const infoNodeList = element.querySelectorAll<HTMLElement>(
@@ -11,7 +9,7 @@ function getProductInfo(element: HTMLElement) {
     infoNodeList
   ).map((element) => text(element).replace(/\n/g, ''))
 
-  return { how: how.replace('&nbsp;', ''), status, price, boughtDate, area }
+  return { how, status, price, boughtDate, area }
 }
 
 export default getProductInfo

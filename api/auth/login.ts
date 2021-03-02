@@ -1,4 +1,4 @@
-import { getBrowser } from '@cbcruk/utils'
+import { getBrowser } from '@cbcruk/puppeteer'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { serialize } from 'cookie'
 

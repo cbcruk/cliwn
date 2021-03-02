@@ -1,4 +1,4 @@
-import { getDocument } from '@cbcruk/utils'
+import { getDocument } from '@cbcruk/dom'
 import { NextApiRequest, NextApiResponse } from 'next'
 import getSoldList from '../../lib/helper/getSoldList'
 import getPageOffset from '../../lib/helper/getPageOffset'

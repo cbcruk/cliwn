@@ -1,8 +1,6 @@
-import { domUtils } from '@cbcruk/utils'
+import { alt, number, text } from '@cbcruk/dom'
 import { toNumber } from 'lodash'
 import * as SELECTORS from './selector'
-
-const { alt, number, text } = domUtils
 
 function getSoldList(document: Document) {
   const rowNodeList = document.querySelectorAll<HTMLDivElement>(

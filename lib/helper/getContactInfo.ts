@@ -1,7 +1,5 @@
-import { domUtils } from '@cbcruk/utils'
+import { text } from '@cbcruk/dom'
 import * as SELECTORS from './selector'
-
-const { text } = domUtils
 
 function getContactInfo(element: HTMLElement) {
   const infoNodeList = element.querySelectorAll<HTMLElement>(

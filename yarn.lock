@@ -1427,17 +1427,41 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cbcruk/utils@0.0.2":
-  version "0.0.2"
-  resolved "https://npm.pkg.github.com/download/@cbcruk/utils/0.0.2/3f0ff8e0c645911c17254640dad52192a98c278f884223630dd31535915b8695#2c5c9e15e01f3a2b900d1d87a1db0ba74f309b64"
-  integrity sha1-LFyeFeAfOiuQDR2HodsLp08wm2Q=
+"@cbcruk/dom@^0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@cbcruk/dom/0.0.1/d0cb702ee931399e701414c603892f379f3ecded9ccd09b4b91fddc71c9888df#ecdaf4f38747d3bdfef74d8fbc060099d60be504"
+  integrity sha1-7Nr084dH073+902PvAYAmdYL5QQ=
   dependencies:
+    "@types/jsdom" "^16.2.6"
     axios "^0.21.1"
-    chrome-aws-lambda "^7.0.0"
-    firebase-admin "^9.4.2"
+    jsdom "^16.4.0"
     linkedom "^0.4.31"
+    tslib "^2.0.0"
+
+"@cbcruk/firebase@^0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@cbcruk/firebase/0.0.1/9d566b09ee9f9c5f2c3f0fb7463bb327350796f8209e094637269f9169cfd8fb#18237dfc87f82723e32ea079273183b22e2913af"
+  integrity sha1-GCN9/If4JyPjLqB5JzGDsi4pE68=
+  dependencies:
+    firebase-admin "^9.4.2"
+    tslib "^2.0.0"
+
+"@cbcruk/puppeteer@^0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@cbcruk/puppeteer/0.0.1/a382c35c1a0c4c60ff086aa014e81f8f0203806e512a40f3d103d37720e909e5#2fcaab1604103692eeff91f0facc4cade078e3a4"
+  integrity sha1-L8qrFgQQNpLu/5Hw+sxMreB446Q=
+  dependencies:
+    chrome-aws-lambda "^7.0.0"
     puppeteer "^7.1.0"
     puppeteer-core "^7.1.0"
+    tslib "^2.0.0"
+
+"@cbcruk/utils@^0.0.7":
+  version "0.0.7"
+  resolved "https://npm.pkg.github.com/download/@cbcruk/utils/0.0.7/98b345c1d1bcc45af1c4189ab40064112fb18543bb40c4d2e1f4f479ec48fe0a#d4cc479c96265b44bd66453c6b40eaca6a057298"
+  integrity sha1-1MxHnJYmW0S9ZkU8a0DqymoFcpg=
+  dependencies:
+    dayjs "^1.10.4"
     tslib "^2.0.0"
 
 "@cnakazawa/watch@^1.0.3":
@@ -5127,7 +5151,7 @@ date-now@^0.1.4:
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
 
-dayjs@1.10.4:
+dayjs@1.10.4, dayjs@^1.10.4:
   version "1.10.4"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.4.tgz#8e544a9b8683f61783f570980a8a80eaf54ab1e2"
   integrity sha512-RI/Hh4kqRc1UKLOAf/T5zdMMX5DQIlDxwUe3wSyMMnEbGunnpENCdbUgM+dW7kXidZqCttBrmw7BhN4TMddkCw==

@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@cbcruk/utils": "0.0.2",
+    "@cbcruk/dom": "^0.0.1",
+    "@cbcruk/firebase": "^0.0.1",
+    "@cbcruk/puppeteer": "^0.0.1",
+    "@cbcruk/utils": "^0.0.7",
     "@ionic/react": "5.5.4",
     "@ionic/react-router": "5.5.4",
     "@testing-library/jest-dom": "^5.11.9",

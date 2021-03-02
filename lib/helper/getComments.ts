@@ -1,7 +1,5 @@
-import { domUtils } from '@cbcruk/utils'
+import { text, alt } from '@cbcruk/dom'
 import * as SELECTORS from './selector'
-
-const { text, alt } = domUtils
 
 function getComments(element: HTMLElement) {
   const wrapper = element.querySelector(SELECTORS.COMMENT_WRAPPER)
