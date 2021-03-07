@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useReducer } from 'react'
 import { get, set } from 'idb-keyval'
-import { messaging } from '../firebase'
+import { messaging } from '../lib/firebase'
 
 export const FCM_TOKEN = 'FCM_TOKEN'
 export const TOAST_SHOW = 'TOAST_SHOW'

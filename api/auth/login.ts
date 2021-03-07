@@ -10,9 +10,9 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
 
   await page.goto(`${process.env.API_URL}/auth/login`)
 
-  // @ts-ignore
   await page.$eval(
     'input[name="remember-me"]',
+    // @ts-ignore
     (input: HTMLInputElement) => (input.checked = true)
   )
   await page.type('input[name="userId"]', id)

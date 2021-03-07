@@ -9,6 +9,7 @@ async function soldById(req: NextApiRequest, res: NextApiResponse) {
     const document = await getDocument(`/board/sold/${id}`, {
       params,
       headers: {
+        ['User-Agent']: req.headers['user-agent'],
         cookie: session ? `SESSION=${session};` : '',
       },
     })

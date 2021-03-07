@@ -1,4 +1,4 @@
-import { getFirebaseAdmin } from '@cbcruk/firebase'
+import { getFirebaseAdmin } from '@cbcruk/firebase-admin'
 
 const admin = getFirebaseAdmin({
   projectId: process.env.FIREBASE_PROJECT_ID,
