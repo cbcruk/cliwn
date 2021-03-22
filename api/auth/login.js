@@ -1,8 +1,7 @@
 import { getBrowser } from '@cbcruk/puppeteer'
-import { NextApiRequest, NextApiResponse } from 'next'
 import { serialize } from 'cookie'
 
-async function auth(req: NextApiRequest, res: NextApiResponse) {
+async function auth(req, res) {
   const { id, password } = JSON.parse(req.body)
 
   const browser = await getBrowser()
@@ -12,8 +11,7 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
 
   await page.$eval(
     'input[name="remember-me"]',
-    // @ts-ignore
-    (input: HTMLInputElement) => (input.checked = true)
+    (input) => (input.checked = true)
   )
   await page.type('input[name="userId"]', id)
   await page.type('input[name="userPassword"]', password)
