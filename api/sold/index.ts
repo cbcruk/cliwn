@@ -7,9 +7,6 @@ async function sold(req: NextApiRequest, res: NextApiResponse) {
   try {
     const document = await getDocument('/board/sold', {
       params: req.query,
-      headers: {
-        ['User-Agent']: req.headers['user-agent'],
-      },
     })
     const data = getSoldList(document)
     const pageOffset = getPageOffset(document)
