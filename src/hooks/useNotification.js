@@ -49,6 +49,10 @@ function useNotification() {
   )
 
   useEffect(() => {
+    if (!messaging) {
+      return
+    }
+
     get(FCM_TOKEN).then((token) => {
       if (!token) {
         messaging
@@ -66,6 +70,10 @@ function useNotification() {
   }, [])
 
   useEffect(() => {
+    if (!messaging) {
+      return
+    }
+
     messaging.onMessage((payload) => {
       dispatch({
         type: TOAST_SHOW,
